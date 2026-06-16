@@ -1,558 +1,1232 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Orgs to Apply To</title>
-<style>
-  @import url("https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,700;1,9..144,500;1,9..144,700&family=Inter:wght@400;500;600;700&display=swap");
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Orgs to Apply To</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,700;1,9..144,500;1,9..144,700&family=Inter:wght@400;500;600;700&display=swap");
 
-  :root {
-    --bg: #fff3e6;
-    --bg-grad-1: #ffe0c4;
-    --bg-grad-2: #ffd1dc;
-    --surface: #ffffff;
-    --surface-2: #fff8f1;
-    --text: #2a1810;
-    --muted: #8a6852;
-    --accent: #ff5e3a;
-    --accent-hover: #e64a1f;
-    --accent-soft: #ffd9c4;
-    --pink: #ff7eb6;
-    --pink-soft: #ffd6e8;
-    --border: #f5d5b8;
-    --chip-bg: #ffe7d6;
-    --chip-active-bg: #ff5e3a;
-    --chip-active-text: #fff;
-    --mark-bg: #ffe066;
-    --shadow: 0 6px 20px rgba(255, 94, 58, 0.08), 0 2px 4px rgba(255, 94, 58, 0.04);
-    --shadow-hover: 0 10px 30px rgba(255, 94, 58, 0.15);
-    --radius: 14px;
-  }
+      :root {
+        --bg: #fff3e6;
+        --bg-grad-1: #ffe0c4;
+        --bg-grad-2: #ffd1dc;
+        --surface: #ffffff;
+        --surface-2: #fff8f1;
+        --text: #2a1810;
+        --muted: #8a6852;
+        --accent: #ff5e3a;
+        --accent-hover: #e64a1f;
+        --accent-soft: #ffd9c4;
+        --pink: #ff7eb6;
+        --pink-soft: #ffd6e8;
+        --border: #f5d5b8;
+        --chip-bg: #ffe7d6;
+        --chip-active-bg: #ff5e3a;
+        --chip-active-text: #fff;
+        --mark-bg: #ffe066;
+        --shadow:
+          0 6px 20px rgba(255, 94, 58, 0.08), 0 2px 4px rgba(255, 94, 58, 0.04);
+        --shadow-hover: 0 10px 30px rgba(255, 94, 58, 0.15);
+        --radius: 14px;
+      }
 
-  * { box-sizing: border-box; }
-  html, body { margin: 0; padding: 0; }
+      * {
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+      }
 
-  body {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
-    color: var(--text);
-    background: var(--bg);
-    background-image:
-      radial-gradient(900px 600px at 0% -10%, var(--pink-soft) 0%, transparent 55%),
-      radial-gradient(900px 600px at 100% -10%, var(--accent-soft) 0%, transparent 55%),
-      linear-gradient(180deg, var(--bg) 0%, var(--bg-grad-1) 100%);
-    background-attachment: fixed;
-    min-height: 100vh;
-    line-height: 1.5;
-    -webkit-font-smoothing: antialiased;
-  }
+      body {
+        font-family:
+          "Inter",
+          -apple-system,
+          BlinkMacSystemFont,
+          system-ui,
+          sans-serif;
+        color: var(--text);
+        background: var(--bg);
+        background-image:
+          radial-gradient(
+            900px 600px at 0% -10%,
+            var(--pink-soft) 0%,
+            transparent 55%
+          ),
+          radial-gradient(
+            900px 600px at 100% -10%,
+            var(--accent-soft) 0%,
+            transparent 55%
+          ),
+          linear-gradient(180deg, var(--bg) 0%, var(--bg-grad-1) 100%);
+        background-attachment: fixed;
+        min-height: 100vh;
+        line-height: 1.5;
+        -webkit-font-smoothing: antialiased;
+      }
 
-  .container { max-width: 1400px; margin: 0 auto; padding: 32px 24px 80px; }
+      .container {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 32px 24px 80px;
+      }
 
-  header { margin-bottom: 24px; }
+      header {
+        margin-bottom: 24px;
+      }
 
-  h1 {
-    font-family: 'Fraunces', Georgia, serif;
-    font-weight: 700;
-    font-style: italic;
-    font-size: clamp(2.4rem, 5.5vw, 3.6rem);
-    margin: 0 0 6px;
-    line-height: 1;
-    background: linear-gradient(120deg, var(--accent) 0%, #ff3d8b 60%, var(--pink) 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    letter-spacing: -0.01em;
-  }
+      h1 {
+        font-family: "Fraunces", Georgia, serif;
+        font-weight: 700;
+        font-style: italic;
+        font-size: clamp(2.4rem, 5.5vw, 3.6rem);
+        margin: 0 0 6px;
+        line-height: 1.4;
+        background: linear-gradient(
+          120deg,
+          var(--accent) 0%,
+          #ff3d8b 60%,
+          var(--pink) 100%
+        );
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        letter-spacing: -0.01em;
+      }
 
-  .subtitle {
-    color: var(--muted);
-    margin: 0 0 22px;
-    font-size: 1rem;
-  }
+      .subtitle {
+        color: var(--muted);
+        margin: 0 0 22px;
+        font-size: 1rem;
+      }
 
-  .controls { display: flex; flex-direction: column; gap: 14px; }
-  .search-row { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+      .controls {
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+      }
+      .search-row {
+        display: flex;
+        gap: 12px;
+        align-items: center;
+        flex-wrap: wrap;
+      }
 
-  .search {
-    flex: 1;
-    min-width: 240px;
-    height: 48px;
-    padding: 0 16px 0 44px;
-    border: 2px solid var(--border);
-    border-radius: 999px;
-    background: var(--surface) url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%238a6852" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>') no-repeat 14px center;
-    background-size: 18px 18px;
-    font-size: 16px;
-    font-family: inherit;
-    color: var(--text);
-    transition: border-color 0.15s, box-shadow 0.15s;
-  }
-  .search:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 4px var(--accent-soft); }
-  .search::placeholder { color: var(--muted); opacity: 0.7; }
+      .search {
+        flex: 1;
+        min-width: 240px;
+        height: 48px;
+        padding: 0 16px 0 44px;
+        border: 2px solid var(--border);
+        border-radius: 999px;
+        background: var(--surface)
+          url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%238a6852" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>')
+          no-repeat 14px center;
+        background-size: 18px 18px;
+        font-size: 16px;
+        font-family: inherit;
+        color: var(--text);
+        transition:
+          border-color 0.15s,
+          box-shadow 0.15s;
+      }
+      .search:focus {
+        outline: none;
+        border-color: var(--accent);
+        box-shadow: 0 0 0 4px var(--accent-soft);
+      }
+      .search::placeholder {
+        color: var(--muted);
+        opacity: 0.7;
+      }
 
-  .type-select {
-    height: 48px;
-    padding: 0 40px 0 16px;
-    border: 2px solid var(--border);
-    border-radius: 999px;
-    background: var(--surface) url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%238a6852" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>') no-repeat right 14px center;
-    background-size: 18px 18px;
-    font-size: 16px;
-    font-family: inherit;
-    color: var(--text);
-    appearance: none;
-    -webkit-appearance: none;
-    cursor: pointer;
-    min-width: 200px;
-  }
-  .type-select:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 4px var(--accent-soft); }
+      .type-select {
+        height: 48px;
+        padding: 0 40px 0 16px;
+        border: 2px solid var(--border);
+        border-radius: 999px;
+        background: var(--surface)
+          url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%238a6852" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>')
+          no-repeat right 14px center;
+        background-size: 18px 18px;
+        font-size: 16px;
+        font-family: inherit;
+        color: var(--text);
+        appearance: none;
+        -webkit-appearance: none;
+        cursor: pointer;
+        min-width: 200px;
+      }
+      .type-select:focus {
+        outline: none;
+        border-color: var(--accent);
+        box-shadow: 0 0 0 4px var(--accent-soft);
+      }
 
-  .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+      .chips {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
 
-  .chip {
-    border: 2px solid var(--border);
-    background: var(--surface);
-    color: var(--text);
-    padding: 9px 14px;
-    border-radius: 999px;
-    font-size: 0.875rem;
-    font-weight: 500;
-    cursor: pointer;
-    transition: all 0.15s ease;
-    font-family: inherit;
-    line-height: 1;
-  }
-  @media (hover: hover) {
-    .chip:hover { border-color: var(--accent); color: var(--accent); }
-  }
-  .chip.active {
-    background: var(--chip-active-bg);
-    color: var(--chip-active-text);
-    border-color: var(--chip-active-bg);
-    box-shadow: 0 2px 8px rgba(255, 94, 58, 0.3);
-  }
-  .chip .count {
-    opacity: 0.65;
-    margin-left: 5px;
-    font-weight: 400;
-    font-size: 0.8em;
-  }
-  .chip.active .count { opacity: 0.85; }
-
-  .stats {
-    margin: 22px 4px 14px;
-    color: var(--muted);
-    font-size: 1rem;
-    font-style: italic;
-    font-family: 'Fraunces', Georgia, serif;
-  }
-  .stats strong { color: var(--accent); font-weight: 700; font-style: normal; font-family: 'Inter', sans-serif; }
-
-  .table-wrap {
-    background: var(--surface);
-    border-radius: var(--radius);
-    box-shadow: var(--shadow);
-    overflow: hidden;
-    border: 1px solid var(--border);
-  }
-
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 0.92rem;
-  }
-
-  thead {
-    background: linear-gradient(180deg, var(--accent-soft) 0%, var(--pink-soft) 100%);
-    position: sticky;
-    top: 0;
-    z-index: 2;
-  }
-
-  th {
-    text-align: left;
-    padding: 14px 14px;
-    font-weight: 700;
-    font-size: 0.74rem;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    color: var(--text);
-    border-bottom: 2px solid var(--accent);
-    white-space: nowrap;
-  }
-  th.sortable { cursor: pointer; user-select: none; }
-  th .arrow {
-    display: inline-block;
-    margin-left: 4px;
-    opacity: 0.35;
-    transition: opacity 0.15s, color 0.15s;
-    font-size: 0.85em;
-  }
-  @media (hover: hover) {
-    th.sortable:hover .arrow { opacity: 0.7; }
-  }
-  th.active .arrow { opacity: 1; color: var(--accent); }
-
-  tbody tr {
-    border-top: 1px solid var(--border);
-    transition: background 0.1s;
-  }
-  tbody tr:first-child { border-top: none; }
-  @media (hover: hover) {
-    tbody tr:hover { background: var(--surface-2); }
-  }
-
-  td { padding: 16px 14px; vertical-align: top; }
-
-  td.primary { min-width: 220px; max-width: 280px; }
-  td.primary .name {
-    font-family: 'Fraunces', Georgia, serif;
-    font-size: 1.05rem;
-    font-weight: 600;
-    line-height: 1.25;
-    color: var(--text);
-  }
-  td.primary .focus {
-    font-size: 0.82rem;
-    color: var(--muted);
-    margin-top: 4px;
-    line-height: 1.4;
-  }
-  td.primary a {
-    display: inline-block;
-    color: var(--accent);
-    text-decoration: none;
-    font-size: 0.82rem;
-    font-weight: 600;
-    margin-top: 8px;
-    border-bottom: 1px dotted var(--accent);
-    padding-bottom: 1px;
-  }
-  @media (hover: hover) {
-    td.primary a:hover { color: var(--accent-hover); border-bottom-style: solid; }
-  }
-
-  .badge {
-    display: inline-block;
-    padding: 4px 10px;
-    border-radius: 999px;
-    font-size: 0.74rem;
-    font-weight: 600;
-    background: var(--chip-bg);
-    color: var(--text);
-    white-space: normal;
-    line-height: 1.3;
-  }
-  .badge.cat-education  { background: #ffd6e8; color: #9d174d; }
-  .badge.cat-mentoring  { background: #fde2c8; color: #92400e; }
-  .badge.cat-multi      { background: #ffd1dc; color: #831843; }
-  .badge.cat-university { background: #ffe7d6; color: #9a3412; }
-  .badge.cat-funding    { background: #fde2e4; color: #be123c; }
-  .badge.cat-indigenous { background: #fec5bb; color: #7c2d12; }
-  .badge.cat-jobs       { background: #fff1c1; color: #854d0e; }
-
-  td.relevance, td.notes {
-    max-width: 340px;
-    line-height: 1.5;
-  }
-  td.notes { color: var(--muted); font-size: 0.88rem; }
-
-  td.location { white-space: nowrap; font-size: 0.85rem; }
-  td.location .addr { color: var(--text); display: block; white-space: normal; max-width: 200px; }
-  td.location .dist {
-    display: inline-block;
-    margin-top: 6px;
-    padding: 2px 8px;
-    border-radius: 999px;
-    background: var(--accent-soft);
-    color: var(--accent-hover);
-    font-weight: 600;
-    font-variant-numeric: tabular-nums;
-    font-size: 0.78rem;
-  }
-
-  mark { background: var(--mark-bg); color: var(--text); padding: 0 2px; border-radius: 3px; }
-
-  .empty {
-    background: var(--surface);
-    border-radius: var(--radius);
-    padding: 60px 20px;
-    text-align: center;
-    color: var(--muted);
-    font-family: 'Fraunces', Georgia, serif;
-    font-style: italic;
-    font-size: 1.15rem;
-    box-shadow: var(--shadow);
-    border: 1px solid var(--border);
-  }
-  .empty.hidden { display: none; }
-  .table-wrap.hidden { display: none; }
-
-  @media (max-width: 720px) {
-    .container { padding: 20px 14px 60px; }
-
-    .table-wrap {
-      background: transparent;
-      border: none;
-      box-shadow: none;
-      overflow: visible;
-    }
-
-    table, thead, tbody, tr, td { display: block; width: 100%; }
-    thead { display: none; }
-
-    tbody tr {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 16px;
-      margin-bottom: 12px;
-      box-shadow: var(--shadow);
-    }
-    tbody tr:hover { background: var(--surface); }
-
-    td {
-      display: grid;
-      grid-template-columns: 92px 1fr;
-      gap: 10px;
-      padding: 0;
-      align-items: start;
-      max-width: 100%;
-    }
-    td + td {
-      margin-top: 12px;
-      padding-top: 12px;
-      border-top: 1px dashed var(--border);
-    }
-    td::before {
-      content: attr(data-label);
-      font-size: 0.66rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-      color: var(--muted);
-      padding-top: 3px;
-    }
-
-    td.primary { grid-template-columns: 1fr; min-width: 0; max-width: 100%; }
-    td.primary::before { display: none; }
-    td.primary .name { font-size: 1.15rem; }
-
-    td.relevance, td.notes, td.location { max-width: 100%; }
-    td.location { white-space: normal; }
-    td.location .addr { max-width: 100%; }
-  }
-</style>
-</head>
-<body>
-<div class="container">
-  <header>
-    <h1>Orgs to Apply To</h1>
-    <p class="subtitle">Vancouver nonprofits, education orgs & job boards — research list.</p>
-    <div class="controls">
-      <div class="search-row">
-        <input id="search" class="search" type="search" placeholder="Search names, focus, notes…" autocomplete="off">
-        <select id="type-select" class="type-select" aria-label="Filter by type">
-          <option value="">All types</option>
-        </select>
-      </div>
-      <div id="chips" class="chips"></div>
-    </div>
-  </header>
-  <div id="stats" class="stats"></div>
-  <div id="tablewrap" class="table-wrap">
-    <table>
-      <thead>
-        <tr>
-          <th class="sortable" data-sort="name">Organisation<span class="arrow">↕</span></th>
-          <th class="sortable" data-sort="category">Category<span class="arrow">↕</span></th>
-          <th class="sortable" data-sort="type">Type<span class="arrow">↕</span></th>
-          <th>Why it fits</th>
-          <th>Notes</th>
-          <th class="sortable" data-sort="distance">Location<span class="arrow">↕</span></th>
-        </tr>
-      </thead>
-      <tbody id="tbody"></tbody>
-    </table>
-  </div>
-  <div id="empty" class="empty hidden">No matching orgs. Try clearing filters.</div>
-</div>
-
-<script type="application/json" id="data">[{"name": "Pathways to Education – Vancouver (PCRS)", "category": "Education Access / University Widening Participation", "type": "Nonprofit / Social Services", "focus_area": "Education access, post-secondary transition", "relevance": "Closest structural equivalent to The Access Project. School-embedded staff support youth in Strathcona, Chinatown, DTES and Surrey into post-secondary education.", "website": "pcrs.ca", "notes": "Run by Pacific Community Resources Society. Programme manager roles likely.", "address": "2780 E Broadway, Vancouver BC", "distance_from_home_km": "1.8"}, {"name": "Pathways to Education Canada", "category": "Education Access / University Widening Participation", "type": "National Charity", "focus_area": "Education access, post-secondary transition", "relevance": "National org behind the Vancouver programme. Separate programme staff roles at national level.", "website": "pathwaystoeducation.ca", "notes": "National HQ in Toronto — remote/national roles only.", "address": "439 University Ave, Toronto ON", "distance_from_home_km": "3355.2"}, {"name": "Pacific Community Resources Society (PCRS)", "category": "Education Access / University Widening Participation", "type": "Nonprofit / Social Services", "focus_area": "Education, employment, youth, housing, mental health", "relevance": "Large BC nonprofit (400+ staff) running Pathways to Education, youth hubs, employment services. Multiple programme management roles.", "website": "pcrs.ca", "notes": "One of BC's largest nonprofits. Wide range of programme management openings.", "address": "2780 E Broadway, Vancouver BC", "distance_from_home_km": "1.8"}, {"name": "First Nations Education Steering Committee (FNESC)", "category": "Education Access / University Widening Participation", "type": "Nonprofit / Advocacy", "focus_area": "Indigenous K-12 and post-secondary education", "relevance": "Supports First Nations students and education in BC. Programme coordinator/manager roles.", "website": "fnesc.ca", "notes": "BC-wide mandate. Policy and programme delivery roles.", "address": "100 Park Royal S, West Vancouver BC", "distance_from_home_km": "8.2"}, {"name": "Native Education College (NEC)", "category": "Education Access / University Widening Participation", "type": "Post-Secondary Institution", "focus_area": "Indigenous post-secondary education", "relevance": "Offers certificate and diploma programmes. Programme coordination roles.", "website": "necvancouver.org", "notes": "Located in Vancouver. Indigenous-focused college.", "address": "285 E 5th Ave, Vancouver BC", "distance_from_home_km": "2.0"}, {"name": "Urban Native Youth Association (UNYA)", "category": "Education Access / University Widening Participation", "type": "Nonprofit", "focus_area": "Indigenous youth education, wellness, housing", "relevance": "Programmes for Indigenous youth including education, housing, recreation. Programme management roles.", "website": "unya.bc.ca", "notes": "Key Indigenous youth org in Vancouver.", "address": "1618 E Hastings St, Vancouver BC", "distance_from_home_km": "2.0"}, {"name": "Decoda Literacy Solutions", "category": "Education Access / University Widening Participation", "type": "Nonprofit", "focus_area": "Literacy, adult and youth education", "relevance": "BC's literacy organisation. Supports literacy programmes across the province. Programme coordinator roles.", "website": "decoda.ca", "notes": "Province-wide reach.", "address": "1125 Howe St #980, Vancouver BC", "distance_from_home_km": "4.3"}, {"name": "Big Brothers of Greater Vancouver", "category": "Mentoring & Volunteer Management", "type": "Nonprofit", "focus_area": "Youth mentoring, education", "relevance": "School-based and community mentoring with volunteer matching — direct skill match to Claire's UAO experience.", "website": "bigbrothersvancouver.com", "notes": "Six mentoring programmes including in-school. Programme coordinator/manager roles.", "address": "5118 Joyce St #300, Vancouver BC", "distance_from_home_km": "4.1"}, {"name": "Big Sisters of BC Lower Mainland", "category": "Mentoring & Volunteer Management", "type": "Nonprofit", "focus_area": "Youth mentoring, gender equity", "relevance": "One-to-one and group mentoring for girls and gender-diverse youth. Volunteer recruitment, screening, and programme management.", "website": "bigsisters.bc.ca", "notes": "Group Mentoring Coordinator role recently advertised.", "address": "5118 Joyce St #200, Vancouver BC", "distance_from_home_km": "4.1"}, {"name": "Big Brothers Big Sisters of Langley", "category": "Mentoring & Volunteer Management", "type": "Nonprofit", "focus_area": "Youth mentoring", "relevance": "Part of national BBBS federation. Mentoring programme delivery and coordination.", "website": "langley.bigbrothersbigsisters.ca", "notes": "Lower Mainland — accessible from Vancouver.", "address": "5511 204 St, Langley BC", "distance_from_home_km": "35.1"}, {"name": "KidStart Mentoring", "category": "Mentoring & Volunteer Management", "type": "Nonprofit", "focus_area": "One-to-one youth mentoring", "relevance": "One-to-one mentoring for children and youth in Greater Vancouver. Programme management and casework coordination.", "website": "kidstart.ca", "notes": "30+ year history in BC.", "address": "3001 E Georgia St, Vancouver BC", "distance_from_home_km": "2.8"}, {"name": "Youth Unlimited", "category": "Mentoring & Volunteer Management", "type": "Nonprofit (Faith-based)", "focus_area": "Youth mentoring, community development", "relevance": "Mentoring relationships and programmes for vulnerable youth across Greater Vancouver.", "website": "youthunlimited.com", "notes": "Surrey office — would likely involve travel across Metro Vancouver.", "address": "12975 84 Ave, Surrey BC", "distance_from_home_km": "19.3"}, {"name": "Family Services of Greater Vancouver (FSGV)", "category": "Large Multi-Service Youth & Family Organisations", "type": "Nonprofit", "focus_area": "Youth, family, housing, counselling", "relevance": "Large GVRD nonprofit running Directions Youth Services and other programmes. Programme manager roles.", "website": "fsgv.ca", "notes": "Est. 1928. One of the largest social service agencies in Metro Vancouver.", "address": "1638 E Broadway #301, Vancouver BC", "distance_from_home_km": "0.2"}, {"name": "Directions Youth Services (div. of FSGV)", "category": "Large Multi-Service Youth & Family Organisations", "type": "Nonprofit", "focus_area": "Youth homelessness, education, support", "relevance": "Low-barrier support for at-risk and homeless youth. Education and independence support. Programme management roles.", "website": "directionsyouthservices.ca", "notes": "Division of FSGV.", "address": "1138 Burrard St, Vancouver BC", "distance_from_home_km": "4.4"}, {"name": "Covenant House Vancouver", "category": "Large Multi-Service Youth & Family Organisations", "type": "Nonprofit", "focus_area": "Youth homelessness, counselling, education", "relevance": "Support for youth 16–24 experiencing homelessness. Education and transition programmes. Programme management roles.", "website": "covenanthousebc.org", "notes": "24/7 operation. Multiple programme streams.", "address": "1280 Seymour St, Vancouver BC", "distance_from_home_km": "4.2"}, {"name": "Promise Vancouver", "category": "Large Multi-Service Youth & Family Organisations", "type": "Nonprofit", "focus_area": "Youth leadership, mentoring, childcare", "relevance": "Programmes for children and youth including youth leadership employment. Programme Director role recently advertised.", "website": "promisevancouver.com", "notes": "Faith-informed. Grades 1–12 focus.", "address": "558 Powell St, Vancouver BC", "distance_from_home_km": "2.6"}, {"name": "The Landing Youth Centre (TLYC)", "category": "Large Multi-Service Youth & Family Organisations", "type": "Nonprofit", "focus_area": "Youth support, tutoring, mentoring", "relevance": "Community hub in East Vancouver. Tutoring, mentoring, life skills. Very close to home.", "website": "thelandingyouthcentre.ca", "notes": "Serves vulnerable youth, predominantly IBPOC.", "address": "1648 E 1st Ave, Vancouver BC", "distance_from_home_km": "0.7"}, {"name": "YMCA of Greater Vancouver", "category": "Large Multi-Service Youth & Family Organisations", "type": "Nonprofit", "focus_area": "Youth development, employment, health, education", "relevance": "Large YMCA network with youth employment, education, and leadership programmes. Programme management roles.", "website": "ymcavan.org", "notes": "Multiple locations across Metro Vancouver.", "address": "955 Burrard St, Vancouver BC", "distance_from_home_km": "4.5"}, {"name": "YWCA BC", "category": "Large Multi-Service Youth & Family Organisations", "type": "Nonprofit", "focus_area": "Women and families, education, employment, housing", "relevance": "Early learning, employment, Guide to High School programme. Programme management roles across multiple streams.", "website": "ywcabc.org", "notes": "Guide to High School programme directly mirrors school-based work.", "address": "535 Hornby St, Vancouver BC", "distance_from_home_km": "4.1"}, {"name": "BGC South Coast BC (Boys & Girls Clubs)", "category": "Large Multi-Service Youth & Family Organisations", "type": "Nonprofit", "focus_area": "Youth development, education, life skills", "relevance": "After-school and holiday programmes for children and youth. Programme management across multiple clubs.", "website": "bgcbc.ca", "notes": "Admin office in Mount Pleasant — close to home.", "address": "2875 St George St, Vancouver BC", "distance_from_home_km": "1.6"}, {"name": "S.U.C.C.E.S.S.", "category": "Large Multi-Service Youth & Family Organisations", "type": "Nonprofit", "focus_area": "Immigrant settlement, youth, education, employment", "relevance": "Youth Leadership Millennium programme and education support. Programme management roles.", "website": "successbc.ca", "notes": "Programme Manager for YLM role recently advertised.", "address": "28 W Pender St, Vancouver BC", "distance_from_home_km": "3.1"}, {"name": "MOSAIC", "category": "Large Multi-Service Youth & Family Organisations", "type": "Nonprofit", "focus_area": "Immigrant settlement, youth, counselling", "relevance": "Multicultural outreach and wraparound youth support (ages 13–17). Programme management roles.", "website": "mosaicbc.com", "notes": "South and East Vancouver focus.", "address": "5575 Boundary Rd, Vancouver BC", "distance_from_home_km": "4.8"}, {"name": "Access Youth Outreach Services", "category": "Large Multi-Service Youth & Family Organisations", "type": "Nonprofit", "focus_area": "Youth outreach, empowerment", "relevance": "Youth empowerment programming in Vancouver.", "website": "accessyouth.org", "notes": "Smaller org — worth a direct approach.", "address": "Address TBC", "distance_from_home_km": null}, {"name": "UBC – Equity & Inclusion Office", "category": "University / Post-Secondary Outreach", "type": "University", "focus_area": "Equity, widening access, anti-racism", "relevance": "Cross-campus equity initiatives, outreach to underrepresented students. Community & Capacity Building team roles.", "website": "equity.ubc.ca", "notes": "On UBC Point Grey campus.", "address": "6180 Walter Gage Rd, UBC Vancouver BC", "distance_from_home_km": "13.1"}, {"name": "UBC – First Nations House of Learning", "category": "University / Post-Secondary Outreach", "type": "University", "focus_area": "Indigenous student support, education access", "relevance": "Supports Indigenous students at UBC. Programme and outreach coordination roles.", "website": "indigenous.ubc.ca", "notes": "On UBC Vancouver campus.", "address": "6180 Walter Gage Rd, UBC Vancouver BC", "distance_from_home_km": "13.1"}, {"name": "Simon Fraser University – Community Engagement", "category": "University / Post-Secondary Outreach", "type": "University", "focus_area": "Community outreach, education access", "relevance": "Outreach programmes including employer engagement and student access. Programme manager roles.", "website": "sfu.ca", "notes": "Main campus in Burnaby; also downtown Vancouver campus.", "address": "8888 University Dr, Burnaby BC", "distance_from_home_km": "11.2"}, {"name": "SFU – Applied Sciences Outreach", "category": "University / Post-Secondary Outreach", "type": "University", "focus_area": "STEM outreach, school engagement", "relevance": "Outreach to schools promoting engineering, science, and technology. Coordinator role recently advertised.", "website": "sfu.ca/fas", "notes": "Burnaby campus.", "address": "8888 University Dr, Burnaby BC", "distance_from_home_km": "11.2"}, {"name": "United Way British Columbia", "category": "Funding & Umbrella Organisations", "type": "Charity / Funder", "focus_area": "Youth, poverty reduction, social inclusion", "relevance": "Funds and runs programmes including Youth Futures Education Fund. Programme officer/manager roles.", "website": "uwbc.ca", "notes": "Burnaby office.", "address": "4543 Canada Way, Burnaby BC", "distance_from_home_km": "5.3"}, {"name": "Vancouver Foundation", "category": "Funding & Umbrella Organisations", "type": "Charity / Funder", "focus_area": "Community grants, youth, social mobility", "relevance": "Largest community foundation in Canada. Programme roles on grants and community investment teams.", "website": "vancouverfoundation.ca", "notes": "Downtown Vancouver.", "address": "1075 W Georgia St, Vancouver BC", "distance_from_home_km": "4.4"}, {"name": "Foundry BC – Granville Centre", "category": "Funding & Umbrella Organisations", "type": "Government / Nonprofit Network", "focus_area": "Youth mental health, education, wellbeing", "relevance": "Province-wide network of youth centres. Education and employment support. Programme coordination roles.", "website": "foundrybc.ca", "notes": "Granville St location.", "address": "1260 Granville St, Vancouver BC", "distance_from_home_km": "4.2"}, {"name": "Vancouver Aboriginal Child & Family Services Society (VACFSS)", "category": "Indigenous-Specific Organisations", "type": "Nonprofit", "focus_area": "Indigenous children and families, education", "relevance": "Services for urban Indigenous children and families. Programme management and outreach roles.", "website": "vacfss.com", "notes": "Greater Vancouver area.", "address": "1999 Marine Dr, North Vancouver BC", "distance_from_home_km": "6.1"}, {"name": "Aboriginal Youth Mentorship Programs (various)", "category": "Indigenous-Specific Organisations", "type": "Nonprofit", "focus_area": "Indigenous youth mentoring", "relevance": "Various programmes supporting Indigenous youth. Worth searching on CharityVillage.", "website": "charityvillage.com", "notes": "Search CharityVillage for current Indigenous youth programme roles.", "address": "Various locations", "distance_from_home_km": null}, {"name": "CharityVillage", "category": "Job Boards to Monitor", "type": "Job Board", "focus_area": "Nonprofit sector-wide", "relevance": "Canada's leading nonprofit job board. Filter by Vancouver BC and programme management.", "website": "charityvillage.com", "notes": "Set up email alerts for 'programme manager' + 'Vancouver'.", "address": "Online only", "distance_from_home_km": null}, {"name": "Idealist (idealist.org)", "category": "Job Boards to Monitor", "type": "Job Board", "focus_area": "Nonprofit sector-wide", "relevance": "International nonprofit job board. Good Vancouver coverage.", "website": "idealist.org", "notes": "Good for programme manager roles across the sector.", "address": "Online only", "distance_from_home_km": null}, {"name": "Work for Good (BC Nonprofit Network)", "category": "Job Boards to Monitor", "type": "Job Board", "focus_area": "BC nonprofits", "relevance": "BC-specific nonprofit job board.", "website": "bcnonprofit.ca", "notes": "Worth checking weekly.", "address": "Online only", "distance_from_home_km": null}]</script>
-
-<script>
-  const DATA = JSON.parse(document.getElementById('data').textContent).map((row, i) => ({
-    ...row,
-    _id: i,
-    _distance: row.distance_from_home_km != null ? parseFloat(row.distance_from_home_km) : null
-  }));
-
-  const state = { search: '', category: '', type: '', sort: 'distance', dir: 'asc' };
-
-  const CAT_CLASS = {
-    'Education Access / University Widening Participation': 'cat-education',
-    'Mentoring & Volunteer Management': 'cat-mentoring',
-    'Large Multi-Service Youth & Family Organisations': 'cat-multi',
-    'University / Post-Secondary Outreach': 'cat-university',
-    'Funding & Umbrella Organisations': 'cat-funding',
-    'Indigenous-Specific Organisations': 'cat-indigenous',
-    'Job Boards to Monitor': 'cat-jobs'
-  };
-
-  const CAT_SHORT = {
-    'Education Access / University Widening Participation': 'Education access',
-    'Mentoring & Volunteer Management': 'Mentoring',
-    'Large Multi-Service Youth & Family Organisations': 'Multi-service',
-    'University / Post-Secondary Outreach': 'University outreach',
-    'Funding & Umbrella Organisations': 'Funding',
-    'Indigenous-Specific Organisations': 'Indigenous',
-    'Job Boards to Monitor': 'Job boards'
-  };
-
-  function escapeHTML(s) {
-    return String(s ?? '').replace(/[&<>"']/g, c => ({
-      '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'
-    })[c]);
-  }
-
-  function highlight(text, q) {
-    const esc = escapeHTML(text);
-    if (!q) return esc;
-    const re = new RegExp('(' + q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'gi');
-    return esc.replace(re, '<mark>$1</mark>');
-  }
-
-  function buildChips() {
-    const counts = {};
-    DATA.forEach(d => { counts[d.category] = (counts[d.category] || 0) + 1; });
-    const cats = Object.keys(counts).sort((a, b) => counts[b] - counts[a]);
-    const wrap = document.getElementById('chips');
-    const parts = ['<button class="chip active" data-cat="">All<span class="count">' + DATA.length + '</span></button>'];
-    cats.forEach(c => {
-      const short = CAT_SHORT[c] || c;
-      parts.push('<button class="chip" data-cat="' + escapeHTML(c) + '">' + escapeHTML(short) + '<span class="count">' + counts[c] + '</span></button>');
-    });
-    wrap.innerHTML = parts.join('');
-    wrap.addEventListener('click', e => {
-      const btn = e.target.closest('.chip');
-      if (!btn) return;
-      state.category = btn.dataset.cat;
-      wrap.querySelectorAll('.chip').forEach(c => c.classList.toggle('active', c === btn));
-      render();
-    });
-  }
-
-  function buildTypeSelect() {
-    const counts = {};
-    DATA.forEach(d => { counts[d.type] = (counts[d.type] || 0) + 1; });
-    const types = Object.keys(counts).sort();
-    const sel = document.getElementById('type-select');
-    types.forEach(t => {
-      const o = document.createElement('option');
-      o.value = t;
-      o.textContent = t + ' (' + counts[t] + ')';
-      sel.appendChild(o);
-    });
-    sel.addEventListener('change', () => { state.type = sel.value; render(); });
-  }
-
-  function bindSearch() {
-    const s = document.getElementById('search');
-    s.addEventListener('input', () => { state.search = s.value.trim().toLowerCase(); render(); });
-  }
-
-  function bindSort() {
-    document.querySelectorAll('th.sortable').forEach(th => {
-      th.addEventListener('click', () => {
-        const key = th.dataset.sort;
-        if (state.sort === key) {
-          state.dir = state.dir === 'asc' ? 'desc' : 'asc';
-        } else {
-          state.sort = key;
-          state.dir = 'asc';
+      .chip {
+        border: 2px solid var(--border);
+        background: var(--surface);
+        color: var(--text);
+        padding: 9px 14px;
+        border-radius: 999px;
+        font-size: 0.875rem;
+        font-weight: 500;
+        cursor: pointer;
+        transition: all 0.15s ease;
+        font-family: inherit;
+        line-height: 1;
+      }
+      @media (hover: hover) {
+        .chip:hover {
+          border-color: var(--accent);
+          color: var(--accent);
         }
-        render();
-      });
-    });
-  }
+      }
+      .chip.active {
+        background: var(--chip-active-bg);
+        color: var(--chip-active-text);
+        border-color: var(--chip-active-bg);
+        box-shadow: 0 2px 8px rgba(255, 94, 58, 0.3);
+      }
+      .chip .count {
+        opacity: 0.65;
+        margin-left: 5px;
+        font-weight: 400;
+        font-size: 0.8em;
+      }
+      .chip.active .count {
+        opacity: 0.85;
+      }
 
-  function compare(a, b) {
-    const k = state.sort;
-    let av, bv;
-    if (k === 'distance') {
-      av = a._distance; bv = b._distance;
-      if (av === null && bv === null) return 0;
-      if (av === null) return 1;
-      if (bv === null) return -1;
-    } else { av = String(a[k] || '').toLowerCase(); bv = String(b[k] || '').toLowerCase(); }
-    if (av < bv) return state.dir === 'asc' ? -1 : 1;
-    if (av > bv) return state.dir === 'asc' ? 1 : -1;
-    return 0;
-  }
+      .stats {
+        margin: 22px 4px 14px;
+        color: var(--muted);
+        font-size: 1rem;
+        font-style: italic;
+        font-family: "Fraunces", Georgia, serif;
+      }
+      .stats strong {
+        color: var(--accent);
+        font-weight: 700;
+        font-style: normal;
+        font-family: "Inter", sans-serif;
+      }
 
-  function rowMatches(d) {
-    if (state.category && d.category !== state.category) return false;
-    if (state.type && d.type !== state.type) return false;
-    if (state.search) {
-      const hay = [d.name, d.category, d.type, d.focus_area, d.relevance, d.notes, d.address, d.website].join(' ').toLowerCase();
-      if (!hay.includes(state.search)) return false;
-    }
-    return true;
-  }
+      .table-wrap {
+        background: var(--surface);
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+        overflow: hidden;
+        border: 1px solid var(--border);
+      }
 
-  function render() {
-    const q = state.search;
-    const filtered = DATA.filter(rowMatches).sort(compare);
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 0.92rem;
+      }
 
-    document.querySelectorAll('th.sortable').forEach(th => {
-      const active = th.dataset.sort === state.sort;
-      th.classList.toggle('active', active);
-      th.querySelector('.arrow').textContent = active ? (state.dir === 'asc' ? '▲' : '▼') : '↕';
-    });
+      thead {
+        background: linear-gradient(
+          180deg,
+          var(--accent-soft) 0%,
+          var(--pink-soft) 100%
+        );
+        position: sticky;
+        top: 0;
+        z-index: 2;
+      }
 
-    document.getElementById('stats').innerHTML = 'Showing <strong>' + filtered.length + '</strong> of ' + DATA.length;
+      th {
+        text-align: left;
+        padding: 14px 14px;
+        font-weight: 700;
+        font-size: 0.74rem;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        color: var(--text);
+        border-bottom: 2px solid var(--accent);
+        white-space: nowrap;
+      }
+      th.sortable {
+        cursor: pointer;
+        user-select: none;
+      }
+      th .arrow {
+        display: inline-block;
+        margin-left: 4px;
+        opacity: 0.35;
+        transition:
+          opacity 0.15s,
+          color 0.15s;
+        font-size: 0.85em;
+      }
+      @media (hover: hover) {
+        th.sortable:hover .arrow {
+          opacity: 0.7;
+        }
+      }
+      th.active .arrow {
+        opacity: 1;
+        color: var(--accent);
+      }
 
-    const tbody = document.getElementById('tbody');
-    const empty = document.getElementById('empty');
-    const wrap = document.getElementById('tablewrap');
+      tbody tr {
+        border-top: 1px solid var(--border);
+        transition: background 0.1s;
+      }
+      tbody tr:first-child {
+        border-top: none;
+      }
+      @media (hover: hover) {
+        tbody tr:hover {
+          background: var(--surface-2);
+        }
+      }
 
-    if (!filtered.length) {
-      tbody.innerHTML = '';
-      empty.classList.remove('hidden');
-      wrap.classList.add('hidden');
-      return;
-    }
-    empty.classList.add('hidden');
-    wrap.classList.remove('hidden');
+      td {
+        padding: 16px 14px;
+        vertical-align: top;
+      }
 
-    tbody.innerHTML = filtered.map(d => {
-      const catClass = CAT_CLASS[d.category] || '';
-      const catShort = CAT_SHORT[d.category] || d.category;
-      const website = d.website ? '<a href="https://' + escapeHTML(d.website) + '" target="_blank" rel="noopener">' + escapeHTML(d.website) + ' ↗</a>' : '';
-      return '<tr>' +
-        '<td class="primary" data-label="Org">' +
-          '<div class="name">' + highlight(d.name, q) + '</div>' +
-          '<div class="focus">' + highlight(d.focus_area, q) + '</div>' +
-          website +
-        '</td>' +
-        '<td data-label="Category"><span class="badge ' + catClass + '">' + highlight(catShort, q) + '</span></td>' +
-        '<td data-label="Type">' + highlight(d.type, q) + '</td>' +
-        '<td class="relevance" data-label="Why it fits">' + highlight(d.relevance, q) + '</td>' +
-        '<td class="notes" data-label="Notes">' + highlight(d.notes, q) + '</td>' +
-        '<td class="location" data-label="Location">' +
-          '<span class="addr">' + highlight(d.address, q) + '</span>' +
-          '<span class="dist">' + (d._distance !== null ? d._distance.toFixed(1) + ' km' : 'N/A') + '</span>' +
-        '</td>' +
-      '</tr>';
-    }).join('');
-  }
+      td.primary {
+        min-width: 220px;
+        max-width: 280px;
+      }
+      td.primary .name {
+        font-family: "Fraunces", Georgia, serif;
+        font-size: 1.05rem;
+        font-weight: 600;
+        line-height: 1.25;
+        color: var(--text);
+      }
+      td.primary .focus {
+        font-size: 0.82rem;
+        color: var(--muted);
+        margin-top: 4px;
+        line-height: 1.4;
+      }
+      td.primary a {
+        display: inline-block;
+        color: var(--accent);
+        text-decoration: none;
+        font-size: 0.82rem;
+        font-weight: 600;
+        margin-top: 8px;
+        border-bottom: 1px dotted var(--accent);
+        padding-bottom: 1px;
+      }
+      @media (hover: hover) {
+        td.primary a:hover {
+          color: var(--accent-hover);
+          border-bottom-style: solid;
+        }
+      }
 
-  buildChips();
-  buildTypeSelect();
-  bindSearch();
-  bindSort();
-  render();
-</script>
-</body>
+      .badge {
+        display: inline-block;
+        padding: 4px 10px;
+        border-radius: 999px;
+        font-size: 0.74rem;
+        font-weight: 600;
+        background: var(--chip-bg);
+        color: var(--text);
+        white-space: normal;
+        line-height: 1.3;
+      }
+      .badge.cat-education {
+        background: #ffd6e8;
+        color: #9d174d;
+      }
+      .badge.cat-mentoring {
+        background: #fde2c8;
+        color: #92400e;
+      }
+      .badge.cat-multi {
+        background: #ffd1dc;
+        color: #831843;
+      }
+      .badge.cat-university {
+        background: #ffe7d6;
+        color: #9a3412;
+      }
+      .badge.cat-funding {
+        background: #fde2e4;
+        color: #be123c;
+      }
+      .badge.cat-indigenous {
+        background: #fec5bb;
+        color: #7c2d12;
+      }
+      .badge.cat-jobs {
+        background: #fff1c1;
+        color: #854d0e;
+      }
+
+      td.relevance,
+      td.notes {
+        max-width: 340px;
+        line-height: 1.5;
+      }
+      td.notes {
+        color: var(--muted);
+        font-size: 0.88rem;
+      }
+
+      td.location {
+        white-space: nowrap;
+        font-size: 0.85rem;
+      }
+      td.location .addr {
+        color: var(--text);
+        display: block;
+        white-space: normal;
+        max-width: 200px;
+      }
+      td.location .dist {
+        display: inline-block;
+        margin-top: 6px;
+        padding: 2px 8px;
+        border-radius: 999px;
+        background: var(--accent-soft);
+        color: var(--accent-hover);
+        font-weight: 600;
+        font-variant-numeric: tabular-nums;
+        font-size: 0.78rem;
+      }
+
+      mark {
+        background: var(--mark-bg);
+        color: var(--text);
+        padding: 0 2px;
+        border-radius: 3px;
+      }
+
+      .empty {
+        background: var(--surface);
+        border-radius: var(--radius);
+        padding: 60px 20px;
+        text-align: center;
+        color: var(--muted);
+        font-family: "Fraunces", Georgia, serif;
+        font-style: italic;
+        font-size: 1.15rem;
+        box-shadow: var(--shadow);
+        border: 1px solid var(--border);
+      }
+      .empty.hidden {
+        display: none;
+      }
+      .table-wrap.hidden {
+        display: none;
+      }
+
+      @media (max-width: 720px) {
+        .container {
+          padding: 20px 14px 60px;
+        }
+
+        .table-wrap {
+          background: transparent;
+          border: none;
+          box-shadow: none;
+          overflow: visible;
+        }
+
+        table,
+        thead,
+        tbody,
+        tr,
+        td {
+          display: block;
+          width: 100%;
+        }
+        thead {
+          display: none;
+        }
+
+        tbody tr {
+          background: var(--surface);
+          border: 1px solid var(--border);
+          border-radius: var(--radius);
+          padding: 16px;
+          margin-bottom: 12px;
+          box-shadow: var(--shadow);
+        }
+        tbody tr:hover {
+          background: var(--surface);
+        }
+
+        td {
+          display: grid;
+          grid-template-columns: 92px 1fr;
+          gap: 10px;
+          padding: 0;
+          align-items: start;
+          max-width: 100%;
+        }
+        td + td {
+          margin-top: 12px;
+          padding-top: 12px;
+          border-top: 1px dashed var(--border);
+        }
+        td::before {
+          content: attr(data-label);
+          font-size: 0.66rem;
+          font-weight: 700;
+          text-transform: uppercase;
+          letter-spacing: 0.06em;
+          color: var(--muted);
+          padding-top: 3px;
+        }
+
+        td.primary {
+          grid-template-columns: 1fr;
+          min-width: 0;
+          max-width: 100%;
+        }
+        td.primary::before {
+          display: none;
+        }
+        td.primary .name {
+          font-size: 1.15rem;
+        }
+
+        td.relevance,
+        td.notes,
+        td.location {
+          max-width: 100%;
+        }
+        td.location {
+          white-space: normal;
+        }
+        td.location .addr {
+          max-width: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>Orgs to Apply To</h1>
+        <p class="subtitle">
+          Vancouver nonprofits, education orgs & job boards — research list.
+        </p>
+        <div class="controls">
+          <div class="search-row">
+            <input
+              id="search"
+              class="search"
+              type="search"
+              placeholder="Search names, focus, notes…"
+              autocomplete="off"
+            />
+            <select
+              id="type-select"
+              class="type-select"
+              aria-label="Filter by type"
+            >
+              <option value="">All types</option>
+            </select>
+          </div>
+          <div id="chips" class="chips"></div>
+        </div>
+      </header>
+      <div id="stats" class="stats"></div>
+      <div id="tablewrap" class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th class="sortable" data-sort="name">
+                Organisation<span class="arrow">↕</span>
+              </th>
+              <th class="sortable" data-sort="category">
+                Category<span class="arrow">↕</span>
+              </th>
+              <th class="sortable" data-sort="type">
+                Type<span class="arrow">↕</span>
+              </th>
+              <th>Why it fits</th>
+              <th>Notes</th>
+              <th class="sortable" data-sort="distance">
+                Location<span class="arrow">↕</span>
+              </th>
+            </tr>
+          </thead>
+          <tbody id="tbody"></tbody>
+        </table>
+      </div>
+      <div id="empty" class="empty hidden">
+        No matching orgs. Try clearing filters.
+      </div>
+    </div>
+
+    <script type="application/json" id="data">
+      [
+        {
+          "name": "Pathways to Education – Vancouver (PCRS)",
+          "category": "Education Access / University Widening Participation",
+          "type": "Nonprofit / Social Services",
+          "focus_area": "Education access, post-secondary transition",
+          "relevance": "Closest structural equivalent to The Access Project. School-embedded staff support youth in Strathcona, Chinatown, DTES and Surrey into post-secondary education.",
+          "website": "pcrs.ca",
+          "notes": "Run by Pacific Community Resources Society. Programme manager roles likely.",
+          "address": "2780 E Broadway, Vancouver BC",
+          "distance_from_home_km": "1.8"
+        },
+        {
+          "name": "Pathways to Education Canada",
+          "category": "Education Access / University Widening Participation",
+          "type": "National Charity",
+          "focus_area": "Education access, post-secondary transition",
+          "relevance": "National org behind the Vancouver programme. Separate programme staff roles at national level.",
+          "website": "pathwaystoeducation.ca",
+          "notes": "National HQ in Toronto — remote/national roles only.",
+          "address": "439 University Ave, Toronto ON",
+          "distance_from_home_km": "3355.2"
+        },
+        {
+          "name": "Pacific Community Resources Society (PCRS)",
+          "category": "Education Access / University Widening Participation",
+          "type": "Nonprofit / Social Services",
+          "focus_area": "Education, employment, youth, housing, mental health",
+          "relevance": "Large BC nonprofit (400+ staff) running Pathways to Education, youth hubs, employment services. Multiple programme management roles.",
+          "website": "pcrs.ca",
+          "notes": "One of BC's largest nonprofits. Wide range of programme management openings.",
+          "address": "2780 E Broadway, Vancouver BC",
+          "distance_from_home_km": "1.8"
+        },
+        {
+          "name": "First Nations Education Steering Committee (FNESC)",
+          "category": "Education Access / University Widening Participation",
+          "type": "Nonprofit / Advocacy",
+          "focus_area": "Indigenous K-12 and post-secondary education",
+          "relevance": "Supports First Nations students and education in BC. Programme coordinator/manager roles.",
+          "website": "fnesc.ca",
+          "notes": "BC-wide mandate. Policy and programme delivery roles.",
+          "address": "100 Park Royal S, West Vancouver BC",
+          "distance_from_home_km": "8.2"
+        },
+        {
+          "name": "Native Education College (NEC)",
+          "category": "Education Access / University Widening Participation",
+          "type": "Post-Secondary Institution",
+          "focus_area": "Indigenous post-secondary education",
+          "relevance": "Offers certificate and diploma programmes. Programme coordination roles.",
+          "website": "necvancouver.org",
+          "notes": "Located in Vancouver. Indigenous-focused college.",
+          "address": "285 E 5th Ave, Vancouver BC",
+          "distance_from_home_km": "2.0"
+        },
+        {
+          "name": "Urban Native Youth Association (UNYA)",
+          "category": "Education Access / University Widening Participation",
+          "type": "Nonprofit",
+          "focus_area": "Indigenous youth education, wellness, housing",
+          "relevance": "Programmes for Indigenous youth including education, housing, recreation. Programme management roles.",
+          "website": "unya.bc.ca",
+          "notes": "Key Indigenous youth org in Vancouver.",
+          "address": "1618 E Hastings St, Vancouver BC",
+          "distance_from_home_km": "2.0"
+        },
+        {
+          "name": "Decoda Literacy Solutions",
+          "category": "Education Access / University Widening Participation",
+          "type": "Nonprofit",
+          "focus_area": "Literacy, adult and youth education",
+          "relevance": "BC's literacy organisation. Supports literacy programmes across the province. Programme coordinator roles.",
+          "website": "decoda.ca",
+          "notes": "Province-wide reach.",
+          "address": "1125 Howe St #980, Vancouver BC",
+          "distance_from_home_km": "4.3"
+        },
+        {
+          "name": "Big Brothers of Greater Vancouver",
+          "category": "Mentoring & Volunteer Management",
+          "type": "Nonprofit",
+          "focus_area": "Youth mentoring, education",
+          "relevance": "School-based and community mentoring with volunteer matching — direct skill match to Claire's UAO experience.",
+          "website": "bigbrothersvancouver.com",
+          "notes": "Six mentoring programmes including in-school. Programme coordinator/manager roles.",
+          "address": "5118 Joyce St #300, Vancouver BC",
+          "distance_from_home_km": "4.1"
+        },
+        {
+          "name": "Big Sisters of BC Lower Mainland",
+          "category": "Mentoring & Volunteer Management",
+          "type": "Nonprofit",
+          "focus_area": "Youth mentoring, gender equity",
+          "relevance": "One-to-one and group mentoring for girls and gender-diverse youth. Volunteer recruitment, screening, and programme management.",
+          "website": "bigsisters.bc.ca",
+          "notes": "Group Mentoring Coordinator role recently advertised.",
+          "address": "5118 Joyce St #200, Vancouver BC",
+          "distance_from_home_km": "4.1"
+        },
+        {
+          "name": "Big Brothers Big Sisters of Langley",
+          "category": "Mentoring & Volunteer Management",
+          "type": "Nonprofit",
+          "focus_area": "Youth mentoring",
+          "relevance": "Part of national BBBS federation. Mentoring programme delivery and coordination.",
+          "website": "langley.bigbrothersbigsisters.ca",
+          "notes": "Lower Mainland — accessible from Vancouver.",
+          "address": "5511 204 St, Langley BC",
+          "distance_from_home_km": "35.1"
+        },
+        {
+          "name": "KidStart Mentoring",
+          "category": "Mentoring & Volunteer Management",
+          "type": "Nonprofit",
+          "focus_area": "One-to-one youth mentoring",
+          "relevance": "One-to-one mentoring for children and youth in Greater Vancouver. Programme management and casework coordination.",
+          "website": "kidstart.ca",
+          "notes": "30+ year history in BC.",
+          "address": "3001 E Georgia St, Vancouver BC",
+          "distance_from_home_km": "2.8"
+        },
+        {
+          "name": "Youth Unlimited",
+          "category": "Mentoring & Volunteer Management",
+          "type": "Nonprofit (Faith-based)",
+          "focus_area": "Youth mentoring, community development",
+          "relevance": "Mentoring relationships and programmes for vulnerable youth across Greater Vancouver.",
+          "website": "youthunlimited.com",
+          "notes": "Surrey office — would likely involve travel across Metro Vancouver.",
+          "address": "12975 84 Ave, Surrey BC",
+          "distance_from_home_km": "19.3"
+        },
+        {
+          "name": "Family Services of Greater Vancouver (FSGV)",
+          "category": "Large Multi-Service Youth & Family Organisations",
+          "type": "Nonprofit",
+          "focus_area": "Youth, family, housing, counselling",
+          "relevance": "Large GVRD nonprofit running Directions Youth Services and other programmes. Programme manager roles.",
+          "website": "fsgv.ca",
+          "notes": "Est. 1928. One of the largest social service agencies in Metro Vancouver.",
+          "address": "1638 E Broadway #301, Vancouver BC",
+          "distance_from_home_km": "0.2"
+        },
+        {
+          "name": "Directions Youth Services (div. of FSGV)",
+          "category": "Large Multi-Service Youth & Family Organisations",
+          "type": "Nonprofit",
+          "focus_area": "Youth homelessness, education, support",
+          "relevance": "Low-barrier support for at-risk and homeless youth. Education and independence support. Programme management roles.",
+          "website": "directionsyouthservices.ca",
+          "notes": "Division of FSGV.",
+          "address": "1138 Burrard St, Vancouver BC",
+          "distance_from_home_km": "4.4"
+        },
+        {
+          "name": "Covenant House Vancouver",
+          "category": "Large Multi-Service Youth & Family Organisations",
+          "type": "Nonprofit",
+          "focus_area": "Youth homelessness, counselling, education",
+          "relevance": "Support for youth 16–24 experiencing homelessness. Education and transition programmes. Programme management roles.",
+          "website": "covenanthousebc.org",
+          "notes": "24/7 operation. Multiple programme streams.",
+          "address": "1280 Seymour St, Vancouver BC",
+          "distance_from_home_km": "4.2"
+        },
+        {
+          "name": "Promise Vancouver",
+          "category": "Large Multi-Service Youth & Family Organisations",
+          "type": "Nonprofit",
+          "focus_area": "Youth leadership, mentoring, childcare",
+          "relevance": "Programmes for children and youth including youth leadership employment. Programme Director role recently advertised.",
+          "website": "promisevancouver.com",
+          "notes": "Faith-informed. Grades 1–12 focus.",
+          "address": "558 Powell St, Vancouver BC",
+          "distance_from_home_km": "2.6"
+        },
+        {
+          "name": "The Landing Youth Centre (TLYC)",
+          "category": "Large Multi-Service Youth & Family Organisations",
+          "type": "Nonprofit",
+          "focus_area": "Youth support, tutoring, mentoring",
+          "relevance": "Community hub in East Vancouver. Tutoring, mentoring, life skills. Very close to home.",
+          "website": "thelandingyouthcentre.ca",
+          "notes": "Serves vulnerable youth, predominantly IBPOC.",
+          "address": "1648 E 1st Ave, Vancouver BC",
+          "distance_from_home_km": "0.7"
+        },
+        {
+          "name": "YMCA of Greater Vancouver",
+          "category": "Large Multi-Service Youth & Family Organisations",
+          "type": "Nonprofit",
+          "focus_area": "Youth development, employment, health, education",
+          "relevance": "Large YMCA network with youth employment, education, and leadership programmes. Programme management roles.",
+          "website": "ymcavan.org",
+          "notes": "Multiple locations across Metro Vancouver.",
+          "address": "955 Burrard St, Vancouver BC",
+          "distance_from_home_km": "4.5"
+        },
+        {
+          "name": "YWCA BC",
+          "category": "Large Multi-Service Youth & Family Organisations",
+          "type": "Nonprofit",
+          "focus_area": "Women and families, education, employment, housing",
+          "relevance": "Early learning, employment, Guide to High School programme. Programme management roles across multiple streams.",
+          "website": "ywcabc.org",
+          "notes": "Guide to High School programme directly mirrors school-based work.",
+          "address": "535 Hornby St, Vancouver BC",
+          "distance_from_home_km": "4.1"
+        },
+        {
+          "name": "BGC South Coast BC (Boys & Girls Clubs)",
+          "category": "Large Multi-Service Youth & Family Organisations",
+          "type": "Nonprofit",
+          "focus_area": "Youth development, education, life skills",
+          "relevance": "After-school and holiday programmes for children and youth. Programme management across multiple clubs.",
+          "website": "bgcbc.ca",
+          "notes": "Admin office in Mount Pleasant — close to home.",
+          "address": "2875 St George St, Vancouver BC",
+          "distance_from_home_km": "1.6"
+        },
+        {
+          "name": "S.U.C.C.E.S.S.",
+          "category": "Large Multi-Service Youth & Family Organisations",
+          "type": "Nonprofit",
+          "focus_area": "Immigrant settlement, youth, education, employment",
+          "relevance": "Youth Leadership Millennium programme and education support. Programme management roles.",
+          "website": "successbc.ca",
+          "notes": "Programme Manager for YLM role recently advertised.",
+          "address": "28 W Pender St, Vancouver BC",
+          "distance_from_home_km": "3.1"
+        },
+        {
+          "name": "MOSAIC",
+          "category": "Large Multi-Service Youth & Family Organisations",
+          "type": "Nonprofit",
+          "focus_area": "Immigrant settlement, youth, counselling",
+          "relevance": "Multicultural outreach and wraparound youth support (ages 13–17). Programme management roles.",
+          "website": "mosaicbc.com",
+          "notes": "South and East Vancouver focus.",
+          "address": "5575 Boundary Rd, Vancouver BC",
+          "distance_from_home_km": "4.8"
+        },
+        {
+          "name": "Access Youth Outreach Services",
+          "category": "Large Multi-Service Youth & Family Organisations",
+          "type": "Nonprofit",
+          "focus_area": "Youth outreach, empowerment",
+          "relevance": "Youth empowerment programming in Vancouver.",
+          "website": "accessyouth.org",
+          "notes": "Smaller org — worth a direct approach.",
+          "address": "Address TBC",
+          "distance_from_home_km": null
+        },
+        {
+          "name": "UBC – Equity & Inclusion Office",
+          "category": "University / Post-Secondary Outreach",
+          "type": "University",
+          "focus_area": "Equity, widening access, anti-racism",
+          "relevance": "Cross-campus equity initiatives, outreach to underrepresented students. Community & Capacity Building team roles.",
+          "website": "equity.ubc.ca",
+          "notes": "On UBC Point Grey campus.",
+          "address": "6180 Walter Gage Rd, UBC Vancouver BC",
+          "distance_from_home_km": "13.1"
+        },
+        {
+          "name": "UBC – First Nations House of Learning",
+          "category": "University / Post-Secondary Outreach",
+          "type": "University",
+          "focus_area": "Indigenous student support, education access",
+          "relevance": "Supports Indigenous students at UBC. Programme and outreach coordination roles.",
+          "website": "indigenous.ubc.ca",
+          "notes": "On UBC Vancouver campus.",
+          "address": "6180 Walter Gage Rd, UBC Vancouver BC",
+          "distance_from_home_km": "13.1"
+        },
+        {
+          "name": "Simon Fraser University – Community Engagement",
+          "category": "University / Post-Secondary Outreach",
+          "type": "University",
+          "focus_area": "Community outreach, education access",
+          "relevance": "Outreach programmes including employer engagement and student access. Programme manager roles.",
+          "website": "sfu.ca",
+          "notes": "Main campus in Burnaby; also downtown Vancouver campus.",
+          "address": "8888 University Dr, Burnaby BC",
+          "distance_from_home_km": "11.2"
+        },
+        {
+          "name": "SFU – Applied Sciences Outreach",
+          "category": "University / Post-Secondary Outreach",
+          "type": "University",
+          "focus_area": "STEM outreach, school engagement",
+          "relevance": "Outreach to schools promoting engineering, science, and technology. Coordinator role recently advertised.",
+          "website": "sfu.ca/fas",
+          "notes": "Burnaby campus.",
+          "address": "8888 University Dr, Burnaby BC",
+          "distance_from_home_km": "11.2"
+        },
+        {
+          "name": "United Way British Columbia",
+          "category": "Funding & Umbrella Organisations",
+          "type": "Charity / Funder",
+          "focus_area": "Youth, poverty reduction, social inclusion",
+          "relevance": "Funds and runs programmes including Youth Futures Education Fund. Programme officer/manager roles.",
+          "website": "uwbc.ca",
+          "notes": "Burnaby office.",
+          "address": "4543 Canada Way, Burnaby BC",
+          "distance_from_home_km": "5.3"
+        },
+        {
+          "name": "Vancouver Foundation",
+          "category": "Funding & Umbrella Organisations",
+          "type": "Charity / Funder",
+          "focus_area": "Community grants, youth, social mobility",
+          "relevance": "Largest community foundation in Canada. Programme roles on grants and community investment teams.",
+          "website": "vancouverfoundation.ca",
+          "notes": "Downtown Vancouver.",
+          "address": "1075 W Georgia St, Vancouver BC",
+          "distance_from_home_km": "4.4"
+        },
+        {
+          "name": "Foundry BC – Granville Centre",
+          "category": "Funding & Umbrella Organisations",
+          "type": "Government / Nonprofit Network",
+          "focus_area": "Youth mental health, education, wellbeing",
+          "relevance": "Province-wide network of youth centres. Education and employment support. Programme coordination roles.",
+          "website": "foundrybc.ca",
+          "notes": "Granville St location.",
+          "address": "1260 Granville St, Vancouver BC",
+          "distance_from_home_km": "4.2"
+        },
+        {
+          "name": "Vancouver Aboriginal Child & Family Services Society (VACFSS)",
+          "category": "Indigenous-Specific Organisations",
+          "type": "Nonprofit",
+          "focus_area": "Indigenous children and families, education",
+          "relevance": "Services for urban Indigenous children and families. Programme management and outreach roles.",
+          "website": "vacfss.com",
+          "notes": "Greater Vancouver area.",
+          "address": "1999 Marine Dr, North Vancouver BC",
+          "distance_from_home_km": "6.1"
+        },
+        {
+          "name": "Aboriginal Youth Mentorship Programs (various)",
+          "category": "Indigenous-Specific Organisations",
+          "type": "Nonprofit",
+          "focus_area": "Indigenous youth mentoring",
+          "relevance": "Various programmes supporting Indigenous youth. Worth searching on CharityVillage.",
+          "website": "charityvillage.com",
+          "notes": "Search CharityVillage for current Indigenous youth programme roles.",
+          "address": "Various locations",
+          "distance_from_home_km": null
+        },
+        {
+          "name": "CharityVillage",
+          "category": "Job Boards to Monitor",
+          "type": "Job Board",
+          "focus_area": "Nonprofit sector-wide",
+          "relevance": "Canada's leading nonprofit job board. Filter by Vancouver BC and programme management.",
+          "website": "charityvillage.com",
+          "notes": "Set up email alerts for 'programme manager' + 'Vancouver'.",
+          "address": "Online only",
+          "distance_from_home_km": null
+        },
+        {
+          "name": "Idealist (idealist.org)",
+          "category": "Job Boards to Monitor",
+          "type": "Job Board",
+          "focus_area": "Nonprofit sector-wide",
+          "relevance": "International nonprofit job board. Good Vancouver coverage.",
+          "website": "idealist.org",
+          "notes": "Good for programme manager roles across the sector.",
+          "address": "Online only",
+          "distance_from_home_km": null
+        },
+        {
+          "name": "Work for Good (BC Nonprofit Network)",
+          "category": "Job Boards to Monitor",
+          "type": "Job Board",
+          "focus_area": "BC nonprofits",
+          "relevance": "BC-specific nonprofit job board.",
+          "website": "bcnonprofit.ca",
+          "notes": "Worth checking weekly.",
+          "address": "Online only",
+          "distance_from_home_km": null
+        }
+      ]
+    </script>
+
+    <script>
+      const DATA = JSON.parse(document.getElementById("data").textContent).map(
+        (row, i) => ({
+          ...row,
+          _id: i,
+          _distance:
+            row.distance_from_home_km != null
+              ? parseFloat(row.distance_from_home_km)
+              : null,
+        }),
+      );
+
+      const state = {
+        search: "",
+        category: "",
+        type: "",
+        sort: "distance",
+        dir: "asc",
+      };
+
+      const CAT_CLASS = {
+        "Education Access / University Widening Participation": "cat-education",
+        "Mentoring & Volunteer Management": "cat-mentoring",
+        "Large Multi-Service Youth & Family Organisations": "cat-multi",
+        "University / Post-Secondary Outreach": "cat-university",
+        "Funding & Umbrella Organisations": "cat-funding",
+        "Indigenous-Specific Organisations": "cat-indigenous",
+        "Job Boards to Monitor": "cat-jobs",
+      };
+
+      const CAT_SHORT = {
+        "Education Access / University Widening Participation":
+          "Education access",
+        "Mentoring & Volunteer Management": "Mentoring",
+        "Large Multi-Service Youth & Family Organisations": "Multi-service",
+        "University / Post-Secondary Outreach": "University outreach",
+        "Funding & Umbrella Organisations": "Funding",
+        "Indigenous-Specific Organisations": "Indigenous",
+        "Job Boards to Monitor": "Job boards",
+      };
+
+      function escapeHTML(s) {
+        return String(s ?? "").replace(
+          /[&<>"']/g,
+          (c) =>
+            ({
+              "&": "&amp;",
+              "<": "&lt;",
+              ">": "&gt;",
+              '"': "&quot;",
+              "'": "&#39;",
+            })[c],
+        );
+      }
+
+      function highlight(text, q) {
+        const esc = escapeHTML(text);
+        if (!q) return esc;
+        const re = new RegExp(
+          "(" + q.replace(/[.*+?^${}()|[\]\\]/g, "\\$&") + ")",
+          "gi",
+        );
+        return esc.replace(re, "<mark>$1</mark>");
+      }
+
+      function buildChips() {
+        const counts = {};
+        DATA.forEach((d) => {
+          counts[d.category] = (counts[d.category] || 0) + 1;
+        });
+        const cats = Object.keys(counts).sort((a, b) => counts[b] - counts[a]);
+        const wrap = document.getElementById("chips");
+        const parts = [
+          '<button class="chip active" data-cat="">All<span class="count">' +
+            DATA.length +
+            "</span></button>",
+        ];
+        cats.forEach((c) => {
+          const short = CAT_SHORT[c] || c;
+          parts.push(
+            '<button class="chip" data-cat="' +
+              escapeHTML(c) +
+              '">' +
+              escapeHTML(short) +
+              '<span class="count">' +
+              counts[c] +
+              "</span></button>",
+          );
+        });
+        wrap.innerHTML = parts.join("");
+        wrap.addEventListener("click", (e) => {
+          const btn = e.target.closest(".chip");
+          if (!btn) return;
+          state.category = btn.dataset.cat;
+          wrap
+            .querySelectorAll(".chip")
+            .forEach((c) => c.classList.toggle("active", c === btn));
+          render();
+        });
+      }
+
+      function buildTypeSelect() {
+        const counts = {};
+        DATA.forEach((d) => {
+          counts[d.type] = (counts[d.type] || 0) + 1;
+        });
+        const types = Object.keys(counts).sort();
+        const sel = document.getElementById("type-select");
+        types.forEach((t) => {
+          const o = document.createElement("option");
+          o.value = t;
+          o.textContent = t + " (" + counts[t] + ")";
+          sel.appendChild(o);
+        });
+        sel.addEventListener("change", () => {
+          state.type = sel.value;
+          render();
+        });
+      }
+
+      function bindSearch() {
+        const s = document.getElementById("search");
+        s.addEventListener("input", () => {
+          state.search = s.value.trim().toLowerCase();
+          render();
+        });
+      }
+
+      function bindSort() {
+        document.querySelectorAll("th.sortable").forEach((th) => {
+          th.addEventListener("click", () => {
+            const key = th.dataset.sort;
+            if (state.sort === key) {
+              state.dir = state.dir === "asc" ? "desc" : "asc";
+            } else {
+              state.sort = key;
+              state.dir = "asc";
+            }
+            render();
+          });
+        });
+      }
+
+      function compare(a, b) {
+        const k = state.sort;
+        let av, bv;
+        if (k === "distance") {
+          av = a._distance;
+          bv = b._distance;
+          if (av === null && bv === null) return 0;
+          if (av === null) return 1;
+          if (bv === null) return -1;
+        } else {
+          av = String(a[k] || "").toLowerCase();
+          bv = String(b[k] || "").toLowerCase();
+        }
+        if (av < bv) return state.dir === "asc" ? -1 : 1;
+        if (av > bv) return state.dir === "asc" ? 1 : -1;
+        return 0;
+      }
+
+      function rowMatches(d) {
+        if (state.category && d.category !== state.category) return false;
+        if (state.type && d.type !== state.type) return false;
+        if (state.search) {
+          const hay = [
+            d.name,
+            d.category,
+            d.type,
+            d.focus_area,
+            d.relevance,
+            d.notes,
+            d.address,
+            d.website,
+          ]
+            .join(" ")
+            .toLowerCase();
+          if (!hay.includes(state.search)) return false;
+        }
+        return true;
+      }
+
+      function render() {
+        const q = state.search;
+        const filtered = DATA.filter(rowMatches).sort(compare);
+
+        document.querySelectorAll("th.sortable").forEach((th) => {
+          const active = th.dataset.sort === state.sort;
+          th.classList.toggle("active", active);
+          th.querySelector(".arrow").textContent = active
+            ? state.dir === "asc"
+              ? "▲"
+              : "▼"
+            : "↕";
+        });
+
+        document.getElementById("stats").innerHTML =
+          "Showing <strong>" + filtered.length + "</strong> of " + DATA.length;
+
+        const tbody = document.getElementById("tbody");
+        const empty = document.getElementById("empty");
+        const wrap = document.getElementById("tablewrap");
+
+        if (!filtered.length) {
+          tbody.innerHTML = "";
+          empty.classList.remove("hidden");
+          wrap.classList.add("hidden");
+          return;
+        }
+        empty.classList.add("hidden");
+        wrap.classList.remove("hidden");
+
+        tbody.innerHTML = filtered
+          .map((d) => {
+            const catClass = CAT_CLASS[d.category] || "";
+            const catShort = CAT_SHORT[d.category] || d.category;
+            const website = d.website
+              ? '<a href="https://' +
+                escapeHTML(d.website) +
+                '" target="_blank" rel="noopener">' +
+                escapeHTML(d.website) +
+                " ↗</a>"
+              : "";
+            return (
+              "<tr>" +
+              '<td class="primary" data-label="Org">' +
+              '<div class="name">' +
+              highlight(d.name, q) +
+              "</div>" +
+              '<div class="focus">' +
+              highlight(d.focus_area, q) +
+              "</div>" +
+              website +
+              "</td>" +
+              '<td data-label="Category"><span class="badge ' +
+              catClass +
+              '">' +
+              highlight(catShort, q) +
+              "</span></td>" +
+              '<td data-label="Type">' +
+              highlight(d.type, q) +
+              "</td>" +
+              '<td class="relevance" data-label="Why it fits">' +
+              highlight(d.relevance, q) +
+              "</td>" +
+              '<td class="notes" data-label="Notes">' +
+              highlight(d.notes, q) +
+              "</td>" +
+              '<td class="location" data-label="Location">' +
+              '<span class="addr">' +
+              highlight(d.address, q) +
+              "</span>" +
+              '<span class="dist">' +
+              (d._distance !== null ? d._distance.toFixed(1) + " km" : "N/A") +
+              "</span>" +
+              "</td>" +
+              "</tr>"
+            );
+          })
+          .join("");
+      }
+
+      buildChips();
+      buildTypeSelect();
+      bindSearch();
+      bindSort();
+      render();
+    </script>
+  </body>
 </html>
